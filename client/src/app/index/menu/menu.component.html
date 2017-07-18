@@ -1,40 +1,13 @@
-<div fxLayout="row" fxLayoutAlign="start">
-    <div fxLayout="column" fxLayoutAlign="start" fxLayoutGap="1px">
-        <!-- <md-icon>home</md-icon>
-        <md-icon>home</md-icon>
-        <md-icon>home</md-icon> -->
-        <button>Dashboard</button>
-        <button>Archives</button>
-        <button>Purchase</button>
-        <button>Wholesale</button>
-        <button>Retail</button>
-    </div>
-
-    <div fxLayout="column" fxLayoutAlign="" fxLayoutGap="1px">
-        <md-list>
-            <md-list-item>
-                <md-icon md-list-icon>info</md-icon><a md-line href="">linkA</a>
-            </md-list-item>
-
-            <md-list-item>
-                <md-icon md-list-icon>empty</md-icon><a md-line href="">linkA1</a>
-            </md-list-item>
-
-            <md-list-item>
-                <md-icon md-list-icon>empty</md-icon><a md-line href="">linkA2</a>
-            </md-list-item>
-
-            <md-list-item>
-                <md-icon md-list-icon>empty</md-icon><a md-line href="">linkA3</a>
-            </md-list-item>
-
-            <md-list-item>
-                <md-icon md-list-icon>info</md-icon><a md-line href="">linkB</a>
-            </md-list-item>
-
-            <md-list-item>
-                <md-icon md-list-icon>empty</md-icon><a md-line href="">linkB1</a>
-            </md-list-item>
-        </md-list>
-    </div>
-</div>
+<style>
+     
+</style>
+<md-list fxFlex="100%">
+    <ng-container *ngFor="let menu of menu_data; first as isFirst">
+    <md-list-item *ngIf="menu.show">
+        <md-icon (click)="onClickIndent(true)" md-list-icon fxFlexOrder="1" fxFlex="32px" fxFlexAlign="">{{menu.ico}}</md-icon>
+        <a (click)="onClickName(menu)" fxFlexOrder="2" fxFlex="100px" fxFlexAlign="" *ngIf="menu_show">{{menu.name}}</a>
+        <md-icon (click)="onClickArrow(menu)" md-list-icon fxFlexOrder="3" fxFlexAlign="" *ngIf="menu.open && menu_show">{{(menu.opened)?'keyboard_arrow_up':'keyboard_arrow_down'}}</md-icon>
+        <md-icon (click)="onClickIndent(false)" md-list-icon fxFlexOrder="3" fxFlexAlign="" *ngIf="isFirst && menu_show">format_indent_decrease</md-icon>
+    </md-list-item>
+    </ng-container>
+</md-list>
