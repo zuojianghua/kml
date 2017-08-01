@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'menu-component',
@@ -6,6 +7,11 @@ import { Component } from '@angular/core';
 })
 
 export class MenuComponent {
+
+  constructor(
+    private router: Router,
+  ){}
+
   menu_show: boolean = true;
   //id 菜单ID
   //pid 父级ID
@@ -21,7 +27,7 @@ export class MenuComponent {
 
     { id: 2, pid: 0, name: '档案', level: 1, show: true, open: true, opened: false, ico: 'description', route: '' },
     { id: 201, pid: 2, name: '商品档案', level: 2, show: false, open: true, opened: false, ico: 'empty', route: '' },
-    { id: 20101, pid: 201, name: '商品列表', level: 3, show: false, open: false, opened: false, ico: 'empty', route: '' },
+    { id: 20101, pid: 201, name: '商品列表', level: 3, show: false, open: false, opened: false, ico: 'empty', route: 'base/goods/list' },
     { id: 202, pid: 2, name: '店铺档案', level: 2, show: false, open: true, opened: false, ico: 'empty', route: '' },
     { id: 203, pid: 2, name: '店铺档案', level: 2, show: false, open: true, opened: false, ico: 'empty', route: '' },
     { id: 204, pid: 2, name: '仓库档案', level: 2, show: false, open: true, opened: false, ico: 'empty', route: '' },
@@ -92,6 +98,8 @@ export class MenuComponent {
       this.onClickArrow(menu);
     } else {
       //TODO 切换路由
+      //console.log(menu);
+      this.router.navigate([menu.route]);
     }
 
   }
