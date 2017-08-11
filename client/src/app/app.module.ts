@@ -16,6 +16,8 @@ import { MenuComponent } from './index/menu/menu.component';
 import { TabComponent } from './index/tab/tab.component';
 import { GoodsListComponent } from './base/goods/goods-list/goods-list.component';
 
+import {TabHistoryDataService} from './common/tab-history-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,9 @@ import { GoodsListComponent } from './base/goods/goods-list/goods-list.component
     MdTableModule,
     MdInputModule,
   ],
-  providers: [],
+  providers: [
+    TabHistoryDataService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
