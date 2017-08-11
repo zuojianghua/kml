@@ -26,3 +26,25 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## 学习笔记
+
+### 安装一个扩展
+```
+cnpm install ts-md5 --save
+```
+
+```
+import {Md5} from "ts-md5/dist/md5";
+```
+
+```
+constructor() {
+    console.log(Md5.hashStr("123456"));
+}
+```
+
+### 创建一个模块
+```
+ng generate service common/tabHistoryData
+```

@@ -1,46 +1,97 @@
-<md-card>
-  <md-card-title>商品列表</md-card-title>
-  <md-card-content></md-card-content>
-</md-card>
-
 <div>
-<md-table #table [dataSource]="dataSource">
+  <!--按钮区域-->
+  <div>
+    <button md-button>新增</button>
+    <button md-button>导入</button>
+    <button md-button>导出</button>
+    <button md-button>新增</button>
+    <button md-button>刷新</button>
+    <button md-button>清空条件</button>
+  </div>
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
+  <!--搜索区域-->
+  <div fxLayout='row' fxLayoutWrap fxLayoutGap="10px" class="page_search">
+    <div fxFlex="300px">
+      <label>关键词：</label>
+      <input type="text" placeholder="代码/名称"/>
+    </div>
 
-    <!-- ID Column -->
-    <ng-container cdkColumnDef="userId">
-      <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
-    </ng-container>
+    <div fxFlex="300px">
+      <label>状态：</label>
+      <select>
+        <option>请选择</option>
+        <option>启用</option>
+        <option>停用</option>
+      </select>
+    </div>
 
-    <!-- Progress Column -->
-    <ng-container cdkColumnDef="progress">
-      <md-header-cell *cdkHeaderCellDef> Progress </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.progress}}% </md-cell>
-    </ng-container>
+    <div fxFlex="300px">
+      <label>品牌：</label>
+      <input type="text" readonly/>
+      <span>X</span>
+    </div>
 
-    <!-- Name Column -->
-    <ng-container cdkColumnDef="userName">
-      <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
-    </ng-container>
+    <div fxFlex="300px">
+      <label>分类：</label>
+      <input type="text" readonly/>
+      <span>X</span>
+    </div>
 
-    <!-- Color Column -->
-    <ng-container cdkColumnDef="color">
-      <md-header-cell *cdkHeaderCellDef> Color </md-header-cell>
-      <md-cell *cdkCellDef="let row" [style.color]="row.color"> {{row.color}} </md-cell>
-    </ng-container>
+    <div fxFlex="300px">
+      <label>属性：</label>
+      <input type="text" readonly/>
+      <span>X</span>
+    </div>
+  </div>
 
-    <!-- <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row> -->
-  </md-table>
+  <!--列表区域-->
+  <div class="page_table">
+    <div fxLayout='column' fxLayoutGap="5px">
+      <div fxLayout='row' fxLayoutGap="10px" class="page_table_thead">
+        <div fxFlex="20px"><input type="checkbox"/></div>
+        <div fxFlex="80px">图片</div>
+        <div fxFlex="300px">代码</div>
+        <div fxFlex="150px">商品名称</div>
+        <div fxFlex="100px" fxHide.lt-lg="true">品牌</div>
+        <div fxFlex="100px" fxHide.lt-lg="true">分类</div>
+        <div fxFlex="50px">启用</div>
+        <div fxFlex="auto">操作</div>
+      </div>
 
-  <!-- <md-paginator #paginator
-                [length]="exampleDatabase.data.length"
-                [pageIndex]="0"
-                [pageSize]="25"
-                [pageSizeOptions]="[5, 10, 25, 100]">
-  </md-paginator> -->
+      <div fxLayout='row' fxLayoutGap="10px" class="page_table_tbody" *ngFor="let g of data;">
+        <div fxFlex="20px"><input type="checkbox"/></div>
+        <div fxFlex="80px"><img /></div>
+        <div fxFlex="300px">{{g.goods_code}}</div>
+        <div fxFlex="150px">{{g.goods_name}}</div>
+        <div fxFlex="100px" fxHide.lt-lg="true">{{g.brand_name}}</div>
+        <div fxFlex="100px" fxHide.lt-lg="true">{{g.cate_name}}</div>
+        <div fxFlex="50px">{{g.status}}</div>
+        <div fxFlex="auto">
+          <a href="javascript:void(0);">查看</a>
+          <a href="javascript:void(0);">删除</a>
+          <a href="javascript:void(0);">启用</a>
+          <a href="javascript:void(0);">复制</a>
+          <a href="javascript:void(0);">条码打印</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <table>
+      <thead>
+        <tr>
+          <th></th><th>图片</th><th>代码</th><th>商品名称</th><th>品牌</th><th>分类</th><th>启用</th><th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+      </tbody>
+    </table> -->
+  </div>
+
+  <!--分页区域-->
+  <div>
+
+  </div>
 </div>

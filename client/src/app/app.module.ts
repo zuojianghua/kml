@@ -8,11 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IndexModule} from './index/index.module';
 import { AppRoutingModule } from './app-routing.module';
 
-import { MdButtonModule, MdCheckboxModule, MdIconModule, MdListModule,MdLineModule,MdTabsModule,MdCardModule,MdTableModule} from '@angular/material';
+import { MdButtonModule, MdCheckboxModule, MdIconModule, MdListModule,MdLineModule,MdTabsModule,MdCardModule,MdTableModule,MdInputModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './index/nav/nav.component';
 import { MenuComponent } from './index/menu/menu.component';
+import { TabComponent } from './index/tab/tab.component';
 import { GoodsListComponent } from './base/goods/goods-list/goods-list.component';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { GoodsListComponent } from './base/goods/goods-list/goods-list.component
     AppComponent,
     NavComponent,
     MenuComponent,
+    TabComponent,
     GoodsListComponent,
   ],
   imports: [
@@ -36,6 +38,7 @@ import { GoodsListComponent } from './base/goods/goods-list/goods-list.component
     MdTabsModule,
     MdCardModule,
     MdTableModule,
+    MdInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,5 @@
 import {Component, OnInit,ViewChild} from '@angular/core';
-import {DataSource} from '@angular/cdk';
-import {MdPaginator} from '@angular/material';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/observable/merge';
-import 'rxjs/add/operator/map';
+import {Md5} from "ts-md5/dist/md5";
 
 @Component({
   selector: 'app-goods-list',
@@ -13,14 +7,16 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./goods-list.component.css']
 })
 export class GoodsListComponent implements OnInit {
+  data = [];
 
-  displayedColumns = ['userId', 'userName', 'progress', 'color'];
-  dataSource: any;
-
-  @ViewChild(MdPaginator) paginator: MdPaginator;
 
   ngOnInit() {
-    this.dataSource = DataSource;
+    /* 初始测试数据 */
+    for(let i=1;i<=100;i++){
+      let code = Md5.hashStr('代码'+i);
+      this.data.push({"goods_id":i, "goods_code":code, "goods_name":"测试商品"+i,"goods_img":"","brand_code":"","brand_name":"品牌A","cate_code":"","cate_name":"分类B","status":true});
+    }
+    console.log(this.data);
   }
 
 }
