@@ -17,6 +17,7 @@ import { TabComponent } from './index/tab/tab.component';
 import { GoodsListComponent } from './base/goods/goods-list/goods-list.component';
 
 import {TabHistoryDataService} from './common/tab-history-data.service';
+import { PageComponent } from './common/page/page.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {TabHistoryDataService} from './common/tab-history-data.service';
     MenuComponent,
     TabComponent,
     GoodsListComponent,
+    PageComponent,
   ],
   imports: [
     BrowserModule,

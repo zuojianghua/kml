@@ -58,7 +58,7 @@
         <div fxFlex="auto">操作</div>
       </div>
 
-      <div fxLayout='row' fxLayoutGap="10px" class="page_table_tbody" *ngFor="let g of data;">
+      <div fxLayout='row' fxLayoutGap="10px" class="page_table_tbody" *ngFor="let g of pageData.data;">
         <div fxFlex="20px"><input type="checkbox"/></div>
         <div fxFlex="80px"><img /></div>
         <div fxFlex="300px">{{g.goods_code}}</div>

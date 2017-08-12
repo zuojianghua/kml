@@ -1,7 +1,9 @@
-<md-tab-group>
-  <ng-container *ngFor="let tab of tabData;">
-  <md-tab>
-    <ng-template md-tab-label>{{tab.name}}</ng-template>
-  </md-tab>
-  </ng-container>
-</md-tab-group>
+<nav md-tab-nav-bar>
+  <a md-tab-link
+     *ngFor="let link of tabData"
+     [routerLink]="link.route"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{link.name}}
+  </a>
+</nav>
