@@ -13,7 +13,7 @@
   <div fxLayout='row' fxLayoutWrap fxLayoutGap="10px" class="page_search">
     <div fxFlex="300px">
       <label>关键词：</label>
-      <input type="text" placeholder="代码/名称"/>
+      <input type="text" placeholder="代码/名称" [(ngModel)]="pageData.data.searchData.keyword" />
     </div>
 
     <div fxFlex="300px">
@@ -27,7 +27,7 @@
 
     <div fxFlex="300px">
       <label>品牌：</label>
-      <input type="text" readonly/>
+      <input type="text" readonly [value]="pageData.data.searchData.keyword" />
       <span>X</span>
     </div>
 
@@ -58,7 +58,7 @@
         <div fxFlex="auto">操作</div>
       </div>
 
-      <div fxLayout='row' fxLayoutGap="10px" class="page_table_tbody" *ngFor="let g of pageData.data;">
+      <div fxLayout='row' fxLayoutGap="10px" class="page_table_tbody" *ngFor="let g of pageData.data.listData;">
         <div fxFlex="20px"><input type="checkbox"/></div>
         <div fxFlex="80px"><img /></div>
         <div fxFlex="300px">{{g.goods_code}}</div>

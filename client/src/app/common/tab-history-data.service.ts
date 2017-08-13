@@ -35,24 +35,36 @@ export class TabHistoryDataService {
 
   //同步页面缓存
   syncPageData(pageData){
+    let ret;
     if(this.findPage(pageData.url,'')){
       //已经存在从缓存中读取
       this.data.forEach((value,i)=>{
-        if(value==pageData.url){
-          return this.data[i].data;
+        if(value.route==pageData.url){
+          ret = this.data[i].data;
         }
       });
     }else{
       //新打开的页面，写入到缓存
       this.pushPage(pageData.url,pageData.title);
       this.data.forEach((value,i)=>{
-        if(value==pageData.url){
+        if(value.route==pageData.url){
           this.data[i].data = pageData;
-          return pageData;
+          ret = pageData;
         }
       });
     }
-    return pageData;
+    return ret;
+  }
+
+  savePageData(pageData){
+    this.data.forEach((value,i)=>{
+      if(value.route==pageData.url){
+        this.data[i].data = pageData;
+        console.log('save: ',this.data);
+        return;
+      }
+    });
+    return;
   }
 
 }

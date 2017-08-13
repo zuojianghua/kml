@@ -20,6 +20,7 @@ export class AppRoutingModule {
   constructor(router:Router, TabHistoryDataService:TabHistoryDataService) {
     //路由切换时的事件处理
     router.events.subscribe(event => {
+      //console.log(event);
       // if(event instanceof NavigationStart) {
       //   //不在路由表不作处理
       //   if(!this.findPage(event.url)){
