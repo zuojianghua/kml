@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
+
+/**
+ * 多Tab页面数据缓存服务
+ */
 export class TabHistoryDataService {
   data = [];
   
@@ -56,15 +60,13 @@ export class TabHistoryDataService {
     return ret;
   }
 
+  //数据更新后，保存某页面数据
   savePageData(pageData){
     this.data.forEach((value,i)=>{
       if(value.route==pageData.url){
         this.data[i].data = pageData;
-        console.log('save: ',this.data);
-        return;
       }
     });
-    return;
   }
 
 }
