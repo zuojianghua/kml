@@ -51,4 +51,8 @@ ng generate service common/tabHistoryData
 
 
 ### 页面
-https://segmentfault.com/a/1190000004071388
+html模版写法 https://segmentfault.com/a/1190000004071388
+
+Typescript中文手册 https://www.gitbook.com/book/zhongsp/typescript-handbook/details
+
+angular2常见问题 http://www.jianshu.com/p/588f8effa324
